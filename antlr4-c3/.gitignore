@@ -1,6 +1,0 @@
-# CMake
-build/
-build-asan/
-
-# Clangd
-.cache
