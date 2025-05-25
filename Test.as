@@ -69,11 +69,8 @@ int main()
     myTask.PrintState();  // Should be Idle
 
     myTask.Run();         // Performs work, updates g_counter
-//    myTask.
+    myTask.PrintState();  // Should be Finished
+    Print("Final global counter value: " + g_counter);
 
-//     PrintState();  // Should be Finished
-// 
-//     Print("Final global counter value: " + g_counter);
-// 
-//     return 0;
+    return 0;
 }

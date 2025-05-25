@@ -21,23 +21,21 @@ set(ANTLR_BUILD_CPP_TESTS OFF)
 set(ANTLR_BUILD_SHARED OFF)
 set(ANTLR_BUILD_STATIC ON)
 set(WITH_STATIC_CRT OFF)
-add_subdirectory(antlr4)
+add_subdirectory(antlr4-cpp)
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/angelscript")
 
 set(ANGEL_PARSER
-    angelscript/angelscriptVisitor.h
-    angelscript/angelscriptBaseVisitor.cpp
-    angelscript/angelscriptBaseVisitor.h
-    angelscript/angelscriptLexer.cpp
-    angelscript/angelscriptLexer.h
-    angelscript/angelscriptParser.cpp
-    angelscript/angelscriptParser.h
-    angelscript/angelscriptVisitor.cpp)
+    angelscript/AngelscriptLexer.h
+    angelscript/AngelscriptParser.h
+    angelscript/AngelscriptParserBaseVisitor.h
+    angelscript/AngelscriptParserVisitor.h
+    angelscript/AngelscriptLexer.cpp
+    angelscript/AngelscriptParser.cpp
+    angelscript/AngelscriptParserBaseVisitor.cpp
+    angelscript/AngelscriptParserVisitor.cpp)
 
-set(ANTLR4_C3_SRC ${ANGEL_PARSER})
-
-add_executable(TestCodeComplete ${ANTLR4_C3_SRC} main.cpp)
+add_executable(TestCodeComplete ${ANGEL_PARSER} main.cpp)
 
 target_link_libraries(TestCodeComplete PRIVATE Qt${QT_VERSION_MAJOR}::Core
                                                antlr4_static)

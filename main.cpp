@@ -4,8 +4,8 @@
 
 #include <antlr4-runtime.h>
 
-#include "angelscriptLexer.h"
-#include "angelscriptParser.h"
+#include "AngelscriptLexer.h"
+#include "AngelscriptParser.h"
 
 int main() {
     std::ifstream codeFile(CODE_PATH "/Test.as");
@@ -15,14 +15,14 @@ int main() {
     }
     antlr4::ANTLRInputStream input(codeFile);
 
-    angelscriptLexer lexer(&input);
+    AngelscriptLexer lexer(&input);
     antlr4::CommonTokenStream tokens(&lexer);
     tokens.fill();
     for (auto token : tokens.getTokens()) {
         std::cout << token->toString() << std::endl;
     }
 
-    angelscriptParser parser(&tokens);
+    AngelscriptParser parser(&tokens);
 
     return EXIT_SUCCESS;
 }
